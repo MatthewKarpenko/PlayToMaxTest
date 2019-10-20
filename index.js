@@ -5,7 +5,7 @@ const elemsWithTheSameClass = [];
 
 function createGameBoard(numbersOfColumns = 5) {
   for (y = 0; y < numbersOfColumns; y++) {
-    gameHolder.appendChild(createRow());
+    gameHolder.appendChild(createRow(6));
   };
 };
 
@@ -84,6 +84,7 @@ function pushToArrayIfTheSameClass(color) {
   };
   relatedElements.splice(0);
   if (temporarySameElems.length != 0) {
+    findRelatedBlocks(temporarySameElems[temporarySameElems.length - 1])
     for (y = 0; y < temporarySameElems.length; y++) {
       findRelatedBlocks(temporarySameElems[y]);
     };
@@ -107,4 +108,4 @@ function triggerGame(e) {
   findRelatedBlocks(e.target);
 };
 
-createGameBoard(5);
+createGameBoard(6);
